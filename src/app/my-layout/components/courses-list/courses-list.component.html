@@ -1,0 +1,5 @@
+<div class="courses-container" *ngIf = 'dataExists' >
+  <app-course-item  *ngFor = "let item of coursesItems" [CourseItem] = 'item' appCreatedDateBorder [CourseDate] = 'item.CreationDate'  (CourseClick) = "onCourseClick($event)"  ></app-course-item>
+  <button  class="load-more" (click) = "LoadMoreClick()">LOAD MORE</button>  
+</div>
+<button class="no-data" (click)='noDataClick()'>NO DATA. FEEL FREE TO ADD NEW COURSE</button>

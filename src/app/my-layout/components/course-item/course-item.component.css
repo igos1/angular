@@ -1,0 +1,60 @@
+.course-item{
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    width: 96%; 
+    border: 1px solid #000;
+    margin: 10px;
+    padding: 10px;
+}
+.one-row{
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px; 
+    align-items: center;
+}
+.two-row{
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.Edit , .Delete {
+    display: flex;
+    align-items: center;
+    width: 75px;
+    height: 40px;
+    margin-right: 15px;
+    margin-left: 35px;
+    background-color: #fff;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 10%;
+}
+.envelopeButtonImg{
+    height: 20px;
+    width :20px;
+}
+.time{
+    margin-left:auto; 
+}
+.title ,.time, .date{
+margin-right: 20px;
+}
+.description{
+    text-indent: 20px;
+}
+.asterisk{
+    width: 20px;    
+}
+.titleCont{
+    width:180px; 
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.asteriskBack{
+ background-color: gray;
+ border-radius: 50%;
+}

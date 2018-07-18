@@ -1,0 +1,11 @@
+.img-envelope, .logo{
+    width: 85px;
+    margin: 10px;
+  }
+  .logo{
+      font-size: 25pt;
+  }
+   .logo-cont{
+       display: flex; 
+     height: 80px;;
+  } 
