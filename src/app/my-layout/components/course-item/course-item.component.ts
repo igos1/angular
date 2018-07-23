@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TrainingCours } from '../courses-list/training-cours';
+ import { TrainingCours } from '../../services/course-serv/training-cours';
 @Component({
   selector: 'app-course-item',
   templateUrl: './course-item.component.html',
@@ -8,18 +8,17 @@ import { TrainingCours } from '../courses-list/training-cours';
 
 export class CourseItemComponent implements OnInit {
 
-  @Input() CourseItem: TrainingCours;
+   @Input() CourseItem: TrainingCours;
   
-  @Output() CourseClick = new EventEmitter<number>();
+   @Output() CourseClick = new EventEmitter<number>();
   
   constructor() { }
 
   ngOnInit() {
   }
   
-  CourseClickDelete(id: number) {
+  courseClickDelete(id: number) {   
     this.CourseClick.emit(id);
-   
   }
 
 }

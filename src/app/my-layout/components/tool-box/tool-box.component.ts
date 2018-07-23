@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tool-box',
@@ -6,14 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tool-box.component.css']
 })
 export class ToolBoxComponent implements OnInit {
- 
+
+  @Output() sortSearchClick = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  ValueToConcole(Value) {
-    console.log(Value);
+  SearchClick(Value) {
+   
+    this.sortSearchClick.emit(Value);
+
+
   }
 
 }

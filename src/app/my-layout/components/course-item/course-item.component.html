@@ -2,7 +2,7 @@
   <div class="one-row">
     <div class="titleCont"> 
     <div class="title">{{CourseItem.title | uppercase}} </div>
-    <img *ngIf = 'CourseItem.topRated' [ngClass] = '{asteriskBack: true}' class="asterisk" src="http://cdn.onlinewebfonts.com/svg/img_304499.png">
+    <img [ngClass] = '{asteriskBack: CourseItem.topRated}' class="asterisk" src="http://cdn.onlinewebfonts.com/svg/img_304499.png">
     </div>
     <div class="time">{{CourseItem.Duration | duration}}</div>
     <div class="date">{{CourseItem.CreationDate | date:"dd.MM.yyyy"}}</div>
@@ -15,7 +15,7 @@
     <p class="description">
       {{CourseItem.Description}}
     </p>
-    <button class="Delete" (click) = "CourseClickDelete(CourseItem.id)">
+    <button class="Delete" (click) = "courseClickDelete(CourseItem.id)">
       <img class="envelopeButtonImg" src="https://cdn.pixabay.com/photo/2014/09/25/14/51/envelope-460551__340.png">
        Delete
     </button>

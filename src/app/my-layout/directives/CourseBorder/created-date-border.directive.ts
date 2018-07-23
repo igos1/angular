@@ -13,8 +13,7 @@ export class CreatedDateBorderDirective implements OnInit  {
   }
 
   ngOnInit(){
-    console.log(this.CourseDate <= new Date());
-    if((this.CourseDate < new Date() && (this.CourseDate >= new Date(new Date().getMonth().toString() +'.'+ (new Date().getDay() - 14).toString()+'.'+new Date().getFullYear().toString())))) 
+    if((this.CourseDate < new Date() && (this.CourseDate >= new Date(new Date().getMonth().toString() +'.'+ (new Date('7.1.2018').getDay() - 14).toString()+'.'+new Date().getFullYear().toString())))) 
     {
     this.renderer.setStyle(this.el.nativeElement.firstChild,'border','1px solid green' )   ;
     }

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ToolBoxComponent, BreadcrumbsComponent, CoursesListComponent , HeaderComponent , FooterComponent, CourseItemComponent, CoursesPageComponent, LogoComponent} from './components';
+
+import { ToolBoxComponent, BreadcrumbsComponent, CoursesListComponent , HeaderComponent , FooterComponent, 
+  CourseItemComponent, CoursesPageComponent, LogoComponent, LoginPageComponent} from './components';
 import { CreatedDateBorderDirective } from './directives';
-import { DurationPipe } from './pipes/duration.pipe';
+import { DurationPipe, OrderByPipe, OrderByNamePipe } from './pipes';
 
 
 
@@ -13,7 +15,8 @@ import { DurationPipe } from './pipes/duration.pipe';
     CommonModule,
     FormsModule
   ],
-  declarations: [HeaderComponent, BreadcrumbsComponent, CoursesListComponent, ToolBoxComponent, FooterComponent, CourseItemComponent, CoursesPageComponent, LogoComponent,CreatedDateBorderDirective, DurationPipe],
-  exports : [BreadcrumbsComponent,CoursesListComponent, HeaderComponent, ToolBoxComponent, FooterComponent, CoursesPageComponent, CreatedDateBorderDirective]
+  declarations: [HeaderComponent, BreadcrumbsComponent, CoursesListComponent, ToolBoxComponent, FooterComponent, CourseItemComponent, CoursesPageComponent, LogoComponent,CreatedDateBorderDirective, DurationPipe, OrderByPipe, OrderByNamePipe, LoginPageComponent],
+  exports : [BreadcrumbsComponent,CoursesListComponent, HeaderComponent, ToolBoxComponent, FooterComponent, CoursesPageComponent, CreatedDateBorderDirective, LoginPageComponent],
+
 })
 export class MyLayoutModule { }

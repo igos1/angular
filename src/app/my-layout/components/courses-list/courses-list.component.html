@@ -1,5 +1,18 @@
-<div class="courses-container" *ngIf = 'dataExists' >
-  <app-course-item  *ngFor = "let item of coursesItems" [CourseItem] = 'item' appCreatedDateBorder [CourseDate] = 'item.CreationDate'  (CourseClick) = "onCourseClick($event)"  ></app-course-item>
-  <button  class="load-more" (click) = "LoadMoreClick()">LOAD MORE</button>  
+<app-tool-box (sortSearchClick)="sortByName($event)"></app-tool-box>
+<div class="courses-container">
+  <app-course-item *ngFor="let item of coursesItems | orderByCreationDate" [CourseItem]='item' appCreatedDateBorder [CourseDate]='item.CreationDate'
+    (CourseClick)="onCourseClick($event)"></app-course-item>
+  <button class="load-more" (click)="LoadMoreClick()">LOAD MORE</button>
 </div>
-<button class="no-data" (click)='noDataClick()'>NO DATA. FEEL FREE TO ADD NEW COURSE</button>
+<div *ngIf = 'deletePopUp' class="deletePopUp">
+  <span>Do you really want to delete this course?</span>
+  <div class="deleteAnswers">
+    <button class="YesDel" (click) = "yesDeleteClick()">
+      Yes
+    </button>
+    <button class="NoDel" (click) = "noDeleteClick()">
+      No
+    </button>
+  </div>
+</div>
+<div *ngIf='dataExists' class="no-data">NO DATA. FEEL FREE TO ADD NEW COURSE</div>

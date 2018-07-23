@@ -13,3 +13,22 @@
     background-color: #fff;
     font-family: cursive;
 }
+.deletePopUp{
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    position: fixed;
+    width: 250px;
+    height: 70px;
+    border: 1px solid #000;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.YesDel , .NoDel{
+    margin:0 10px;
+    background-color: #fff;
+    border: 1px solid rgb(187, 187, 187);
+}

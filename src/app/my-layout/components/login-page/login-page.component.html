@@ -1,0 +1,16 @@
+<div class="LoginContainer">
+  <div class=" LoginHead">
+    Login
+  </div>
+  <div class="Inputs">
+    <div>
+      <div>Email *Required</div>
+      <input class="email" type="email"  [(ngModel)] ='email'>
+    </div>
+    <div>
+      <div>Password *Required</div>
+      <input class="password" type="password"  [(ngModel)] = 'password'>
+    </div>
+    <button class="LoginBut" (click) = "LoginIn(email,password)">Login</button>
+  </div>
+</div>

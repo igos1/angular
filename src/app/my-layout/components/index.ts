@@ -6,3 +6,4 @@ export * from './courses-list';
 export * from './course-item';
 export * from './courses-page';
 export * from './logo';
+export * from './login-page';
