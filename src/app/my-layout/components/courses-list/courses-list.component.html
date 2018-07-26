@@ -1,16 +1,16 @@
-<app-tool-box (sortSearchClick)="sortByName($event)"></app-tool-box>
+<app-tool-box (sortSearchClick)="filterByName($event)"></app-tool-box>
 <div class="courses-container">
-  <app-course-item *ngFor="let item of coursesItems | orderByCreationDate" [CourseItem]='item' appCreatedDateBorder [CourseDate]='item.CreationDate'
-    (CourseClick)="onCourseClick($event)"></app-course-item>
-  <button class="load-more" (click)="LoadMoreClick()">LOAD MORE</button>
+  <app-course-item *ngFor="let item of coursesItems | orderByCreationDate" [courseItem]='item' appCreatedDateBorder [courseDate]='item.creationDate'
+    (courseClick)="onCourseDeleteClick($event)"></app-course-item>
+  <button class="load-more" (click)="loadMoreClick()">LOAD MORE</button>
 </div>
 <div *ngIf = 'deletePopUp' class="deletePopUp">
   <span>Do you really want to delete this course?</span>
   <div class="deleteAnswers">
-    <button class="YesDel" (click) = "yesDeleteClick()">
+    <button class="yesDel" (click) = "yesDeleteClick()">
       Yes
     </button>
-    <button class="NoDel" (click) = "noDeleteClick()">
+    <button class="noDel" (click) = "noDeleteClick()">
       No
     </button>
   </div>

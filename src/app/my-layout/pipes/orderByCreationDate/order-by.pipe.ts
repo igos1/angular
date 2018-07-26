@@ -10,7 +10,7 @@ export class OrderByPipe implements PipeTransform {
 
     allCourses.sort(function (a : any, b : any) {
      
-      return b.CreationDate - a.CreationDate ;
+      return b.creationDate - a.creationDate ;
 
     });
     return allCourses;

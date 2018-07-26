@@ -14,7 +14,7 @@ export class ToolBoxComponent implements OnInit {
   ngOnInit() {
   }
 
-  SearchClick(Value) {
+  searchClick(Value) {
    
     this.sortSearchClick.emit(Value);
 

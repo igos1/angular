@@ -1,6 +1,5 @@
 <header class="header">
   <app-logo></app-logo>
-  <div class="Login">User Login</div>
-  <button class="logOff" (click) = "logOff()">Log Off</button>
-
+  <div *ngIf = "isUserAuthorized()" class="Login">{{getUserInfo()}}</div>
+  <button *ngIf = "isUserAuthorized()" class="logOff" (click) = "logOff()">Log Off</button>
 </header>

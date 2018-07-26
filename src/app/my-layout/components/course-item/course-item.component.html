@@ -1,23 +1,21 @@
-<div  class="course-item"  >
+<div class="course-item">
   <div class="one-row">
-    <div class="titleCont"> 
-    <div class="title">{{CourseItem.title | uppercase}} </div>
-    <img [ngClass] = '{asteriskBack: CourseItem.topRated}' class="asterisk" src="http://cdn.onlinewebfonts.com/svg/img_304499.png">
+    <div class="titleCont">
+      <div class="title">{{courseItem.title | uppercase}} </div>
+      <img class="asterisk" [ngClass]='{asteriskBack: courseItem.topRated}' src="https://www.shareicon.net/download/2016/01/09/700633_stars_512x512.png">
     </div>
-    <div class="time">{{CourseItem.Duration | duration}}</div>
-    <div class="date">{{CourseItem.CreationDate | date:"dd.MM.yyyy"}}</div>
+    <div class="time">{{courseItem.duration | Duration}}</div>
+    <div class="date">{{courseItem.creationDate | date:"dd.MM.yyyy"}}</div>
     <button class="Edit">
-      <img class="envelopeButtonImg" src="https://cdn.pixabay.com/photo/2014/09/25/14/51/envelope-460551__340.png"> 
-      Edit
+      <img class="envelopeButtonImg" src="https://cdn.pixabay.com/photo/2014/09/25/14/51/envelope-460551__340.png"> Edit
     </button>
   </div>
   <div class="two-row">
     <p class="description">
-      {{CourseItem.Description}}
+      {{courseItem.description}}
     </p>
-    <button class="Delete" (click) = "courseClickDelete(CourseItem.id)">
-      <img class="envelopeButtonImg" src="https://cdn.pixabay.com/photo/2014/09/25/14/51/envelope-460551__340.png">
-       Delete
+    <button class="Delete" (click)="courseClickDelete(courseItem.id)">
+      <img class="envelopeButtonImg" src="https://cdn.pixabay.com/photo/2014/09/25/14/51/envelope-460551__340.png"> Delete
     </button>
   </div>
 </div>

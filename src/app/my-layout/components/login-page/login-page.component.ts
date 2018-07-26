@@ -4,13 +4,15 @@ import { AuthorizationService } from '../../services/authorization/authorization
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
-  providers: [AuthorizationService]
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private authService: AuthorizationService) {  }
-  LoginIn(email,password){
-   if(email && password ) {this.authService.Login(email,password);}
+  constructor(private authService: AuthorizationService) { }
+  
+  loginIn(email, password) {
+    if (email && password) {
+      this.authService.login(email, password);
+    }
   }
   ngOnInit() {
   }

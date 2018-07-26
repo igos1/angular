@@ -2,53 +2,52 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { OrderByNamePipe } from '../../pipes/orderByTitle/order-by-name.pipe';
 import { CourseService } from '../../services/course-serv/course.service';
+import {TrainingCours} from '../../services/course-serv/training-cours';
 
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',
-  styleUrls: ['./courses-list.component.css'],
-  providers: [CourseService]
+  styleUrls: ['./courses-list.component.css']
 })
 
 
 export class CoursesListComponent implements OnInit {
 
-  @Input() coursesItems;
-  @Input() dataExists;
-  @Input() deletePopUp: boolean = false;
+  public coursesItems: TrainingCours[];
+  public dataExists: boolean;
+  public deletePopUp: boolean = false;
   private deleteId:number;
 
-  constructor(private dataService: CourseService) {
+  constructor(private courseService: CourseService) {
     this.coursesItems = [];
   }
 
   ngOnInit() {
-    this.coursesItems = this.dataService.getCourses();
+    this.coursesItems = this.courseService.getCourses();
     if (this.coursesItems.length == 0) { this.dataExists = true; }
-
   }
 
-  sortByName(Value) {
-
+  filterByName(Value) {
     if (Value) { this.coursesItems = new OrderByNamePipe().transform(this.coursesItems, Value) };
-
   }
 
-
-  onCourseClick(id) {
+  onCourseDeleteClick(id) {
     this.deleteId = id;
     this.deletePopUp = true;
   }
+
   yesDeleteClick() {
-    this.dataService.removeCourse(this.deleteId);
+    this.courseService.removeCourse(this.deleteId);
     this.deletePopUp = false;
+    this.coursesItems = this.courseService.getCourses();
   }
+
   noDeleteClick() {
     this.deletePopUp = false;
   }
-  LoadMoreClick() {
+
+  loadMoreClick() {
     console.log('Load more clicked');
   }
-
 
 }
