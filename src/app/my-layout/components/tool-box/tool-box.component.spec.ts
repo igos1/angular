@@ -9,10 +9,10 @@ import { By } from '@angular/platform-browser';
       </app-tool-box>
         `
 })
-class TestHostComponent {  
+class TestHostComponent {
   inputValue;
   filterByName(value) {
-      this.inputValue = value;
+    this.inputValue = value;
   }
 }
 
@@ -23,10 +23,10 @@ describe('ToolBoxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[FormsModule],
-      declarations: [ ToolBoxComponent,TestHostComponent ]
+      imports: [FormsModule],
+      declarations: [ToolBoxComponent, TestHostComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -42,13 +42,13 @@ describe('ToolBoxComponent', () => {
 
     const toolInplDeb = fixture.debugElement.query(By.css('.toolInput'));
     let toolInput = toolInplDeb.nativeElement;
-    toolInput.value = '123' ;
+    toolInput.value = '123';
     toolInput.dispatchEvent(new Event('input'));
-    fixture.detectChanges();   
-    const SearchBut = fixture.debugElement.query(By.css('.SearchBut'));       
+    fixture.detectChanges();
+    const SearchBut = fixture.debugElement.query(By.css('.SearchBut'));
     SearchBut.triggerEventHandler('click', null);
-    expect(TestHost.inputValue).toBe('123');
-})
+    expect(TestHost.inputValue).toBe(toolInput.value);
+  })
 
- 
+
 });

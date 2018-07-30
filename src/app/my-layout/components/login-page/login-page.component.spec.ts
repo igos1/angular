@@ -35,14 +35,16 @@ describe('LoginPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('should call login from service', () => {
     component.loginIn('log', 'pas')
     expect(authService.login).toHaveBeenCalled();
   });
+
   it('should call login after click', () => {
 
     const loginBut = fixture.debugElement.query(By.css('.LoginBut'));
-    const emailDeb = fixture.debugElement.query(By.css('.email'));
+    const emailDeb = fixture.debugElement.query(By.css('.email'));    
     let emailInput = emailDeb.nativeElement;
     emailInput.value = 'email';
     const passwordDeb = fixture.debugElement.query(By.css('.password'));
@@ -50,9 +52,9 @@ describe('LoginPageComponent', () => {
     passwordInput.value = 'password';
     emailInput.dispatchEvent(new Event('input'));
     passwordInput.dispatchEvent(new Event('input'));
-
     fixture.detectChanges();
     loginBut.triggerEventHandler('click', null);
     expect(authService.login).toHaveBeenCalled();
+
   });
 });

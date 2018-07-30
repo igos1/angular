@@ -6,7 +6,8 @@ import { AuthorizationService } from '../../services/authorization/authorization
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent implements OnInit {
-
+public email: string;
+public password:string;
   constructor(private authService: AuthorizationService) { }
   
   loginIn(email, password) {

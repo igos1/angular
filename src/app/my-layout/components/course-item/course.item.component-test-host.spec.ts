@@ -30,7 +30,7 @@ describe('CourseItemComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [CourseItemComponent, TestHostComponent,DurationPipe]
+            declarations: [CourseItemComponent, TestHostComponent, DurationPipe]
         })
             .compileComponents();
     }));
@@ -43,7 +43,7 @@ describe('CourseItemComponent', () => {
     it('should output deleteId', () => {
         fixture.detectChanges();
         const delId = 1234;
-        const deleteButton = fixture.debugElement.query(By.css('.Delete'));       
+        const deleteButton = fixture.debugElement.query(By.css('.Delete'));
         deleteButton.triggerEventHandler('click', null);
         expect(TestHost.deletedId).toBe(delId);
     })

@@ -7,3 +7,7 @@ export * from './course-item';
 export * from './courses-page';
 export * from './logo';
 export * from './login-page';
+export * from './add-course-page';
+export * from './date-input';
+export * from './duration';
+export * from './authors';

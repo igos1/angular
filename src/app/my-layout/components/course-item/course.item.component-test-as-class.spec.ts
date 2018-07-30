@@ -7,5 +7,7 @@ describe('CourseItemComponent', () => {
         sut = new CourseItemComponent();
     })
 
-    describe('',() => {})
+    it('should create', () => {
+        expect(sut).toBeTruthy();
+      });
 })

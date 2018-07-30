@@ -10,27 +10,27 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let authService: Partial<AuthorizationService>;
-  
+
   beforeEach(async(() => {
-  
-   authService = {
-      getUserInfo: jasmine.createSpy('getUserInfo'),
-      isAuthenticated: jasmine.createSpy('isAuthenticated'),
+
+    authService = {
+      getUserInfo: jasmine.createSpy('getUserInfo').and.returnValue('email'),
+      isAuthenticated: jasmine.createSpy('isAuthenticated').and.returnValue(true),
       logout: jasmine.createSpy('logout'),
       login: jasmine.createSpy('login'),
       goToHome: jasmine.createSpy('goToHome')
-    }; 
+    };
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
+      declarations: [HeaderComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [{provide: AuthorizationService, useValue: authService}]
+      providers: [{ provide: AuthorizationService, useValue: authService }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;        
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
@@ -38,27 +38,28 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should show login', async() => {  
+  it('should show login', () => {
+    
+    const LoginDeb = fixture.debugElement.query(By.css('.Login'));
+    const Login = LoginDeb.nativeElement;
+    expect(Login.textContent).toContain('email');
 
-  //   const LoginDeb =  fixture.debugElement.query(By.css('.Login')) ;
-  //   const Login = LoginDeb.nativeElement;   
+  });
 
-  //   expect(authService.getUserInfo()).toContain(Login.textContent); 
-    
-  // });
-  it('should call getUserInfo from service', () => {       
-    component.getUserInfo()
-    expect(authService.getUserInfo).toHaveBeenCalled(); 
-    
+  it('should call getUserInfo from service', () => {
+    fixture.detectChanges();
+    expect(authService.getUserInfo).toHaveBeenCalled();
+
   });
-  it('should call isUserAuthorized from service', () => {       
-    component.isUserAuthorized()
-    expect(authService.isAuthenticated).toHaveBeenCalled(); 
-    
+  it('should call isUserAuthorized from service', () => {
+    component.isUserAuthorized();
+    expect(authService.isAuthenticated).toHaveBeenCalled();
+
   });
-  it('should call logOff from service', () => {       
-    component.logOff()
-    expect(authService.logout).toHaveBeenCalled();     
+  it('should call logOff from service', () => {
+    const logOff = fixture.debugElement.query(By.css('.logOff'));
+    logOff.triggerEventHandler('click', null);
+    expect(authService.logout).toHaveBeenCalled();
   });
 
 });

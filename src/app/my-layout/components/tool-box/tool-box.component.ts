@@ -8,14 +8,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ToolBoxComponent implements OnInit {
 
   @Output() sortSearchClick = new EventEmitter<boolean>();
-
+  public value: string;
   constructor() { }
 
   ngOnInit() {
   }
 
   searchClick(Value) {
-   
+
     this.sortSearchClick.emit(Value);
 
 
