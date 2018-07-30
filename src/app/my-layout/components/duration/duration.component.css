@@ -1,0 +1,10 @@
+.duration{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.time{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
